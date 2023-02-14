@@ -2,7 +2,7 @@ name: sign
 run-name: generate sign files
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 16 * * *"
 jobs:
   Generate-Signs:
     runs-on: ubuntu-latest
