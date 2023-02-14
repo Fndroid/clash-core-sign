@@ -1,7 +1,8 @@
 name: sign
 run-name: generate sign files
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
 jobs:
   Generate-Signs:
     runs-on: ubuntu-latest
