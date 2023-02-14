@@ -1,0 +1,24 @@
+name: sign
+run-name: generate sign files
+on:
+  workflow_dispatch:
+jobs:
+  Generate-Signs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install 
+      - run: npm run gen
+        env:
+          PRIVATE_KEY: ${{ secrets.SIGN_PRIVATE_KEY }}
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: github action
+          message: 'update signs'
+      
